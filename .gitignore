@@ -39,3 +39,8 @@ npm-debug.log*
 # OS
 .DS_Store
 Thumbs.db
+
+# Vercel / local config dirs
+.localappdata/
+.config/
+.appdata/
