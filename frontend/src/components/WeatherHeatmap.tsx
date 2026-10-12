@@ -9,6 +9,7 @@ import {
 } from "react-leaflet";
 import L from "leaflet";
 import type { Route, RiskLevel } from "../types";
+import { fetchHeatmap as fetchHeatmapApi } from "../api";
 import RiskBadge from "./RiskBadge";
 
 interface HeatmapPointHour {
@@ -64,20 +65,7 @@ export default function WeatherHeatmap({
     setLoading(true);
     setError(null);
     try {
-      const resp = await fetch("/api/heatmap/", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          geometry: route.geometry,
-          departure: departure,
-          load_lbs: loadLbs,
-        }),
-      });
-      if (!resp.ok) {
-        const d = await resp.json().catch(() => ({}));
-        throw new Error(d.error ?? "Heatmap failed");
-      }
-      const data = await resp.json();
+      const data = await fetchHeatmapApi(route.geometry, departure, loadLbs);
       setPoints(data.points ?? []);
     } catch (e: any) {
       setError(e.message ?? "Failed to load heatmap");
