@@ -4,11 +4,7 @@
     "backend": {
       "root": "backend",
       "framework": "django",
-      "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput",
-      "env": {
-        "DJANGO_DEBUG": "False",
-        "CORS_ALLOW_ALL_ORIGINS": "True"
-      }
+      "buildCommand": "pip install -r requirements.txt && python manage.py collectstatic --noinput"
     },
     "frontend": {
       "root": "frontend",
