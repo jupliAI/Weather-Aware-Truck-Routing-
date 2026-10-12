@@ -1,0 +1,41 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+*.egg-info/
+.installed.cfg
+*.egg
+venv/
+env/
+db.sqlite3
+db.sqlite3-journal
+
+# Environment
+.env
+.env.local
+
+# Static files
+staticfiles/
+static/
+media/
+
+# Node
+node_modules/
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
